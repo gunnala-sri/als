@@ -24,10 +24,11 @@ namespace XboxGame
             Games = this._gameService.GetAllGames();
         }
 
-        public void LoadDetails()
+        public void LoadDetails(Game game)
         {
             EventMessage target = new EventMessage();
             target.Text = "Details";
+            target.Data = game;
             _eventAggregator.PublishOnUIThread(target);
         }
     }

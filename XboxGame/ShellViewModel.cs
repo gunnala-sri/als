@@ -17,16 +17,11 @@ namespace XboxGame {
             GameListVM = new GameListViewModel(IoC.Get<IGameService>(), _eventAggregator);
         }
 
-        public void LoadDetails()
-        {
-            GameListVM = new GameDetailViewModel(IoC.Get<IGameService>(), _eventAggregator);
-        }
-
         public void Handle(EventMessage message)
         {
             if (message.Text == "Details")
             {
-                GameListVM = new GameDetailViewModel(IoC.Get<IGameService>(), _eventAggregator);
+                GameListVM = new GameDetailViewModel(IoC.Get<IGameService>(), _eventAggregator, message.Data as Game );
             }
             else
             {

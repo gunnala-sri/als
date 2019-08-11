@@ -22,7 +22,7 @@
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Button Content="View Details"  Margin="5" VerticalAlignment="Center"
-                                        cal:Message.Attach="[Event Click]=[Action LoadDetails()]"/>
+                                        cal:Message.Attach="[Event Click]=[Action LoadDetails($dataContext)]"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
