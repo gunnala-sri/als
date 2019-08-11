@@ -14,6 +14,8 @@ namespace XboxGame
         private readonly IEventAggregator _eventAggregator;
         private readonly IGameService _gameService;
 
+        public Game Game { get; set; }
+
         public List<GameReview> GameReviews { get; set; }
 
         public GameDetailViewModel(IGameService gameService, IEventAggregator eventAggregator)
