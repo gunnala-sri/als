@@ -1,23 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace XboxGame.Models
 {
-    public class Game : INotifyPropertyChanged
+    public class GameRating
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         public int Id { get; set; }
 
-        public string Title { get; set; }
+        public string Name { get; set; }
 
         public string Description { get; set; }
 
-        public double AvgRating { get; set; }
+        public int Rating { get; set; }
 
         public string CreatedBy { get; set; }
 
@@ -26,6 +23,5 @@ namespace XboxGame.Models
         public string ModifiedBy { get; set; }
 
         public DateTime ModifiedDate { get; set; }
-
     }
 }

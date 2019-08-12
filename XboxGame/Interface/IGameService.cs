@@ -12,5 +12,11 @@ namespace XboxGame.Interface
         List<Game> GetAllGames();
 
         List<GameReview> GetGameReviews(int gameId);
+
+        List<GameRating> GetGameRatingDef();
+
+        void EditGame(Game game);
+
+        void PostReview(GameReview review);
     }
 }

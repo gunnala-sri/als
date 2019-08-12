@@ -22,7 +22,19 @@ namespace XboxAPI.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Game>> Get()
         {
-            return _context.Games.ToList();
+            var games = _context.Games.ToList();
+            games.ForEach(g =>
+            {
+                g.AvgRating = GetGameAvgRating(g);
+            });
+
+            return games;
+        }
+
+        [HttpGet("Rating")]
+        public ActionResult<IEnumerable<GameRating>> GetGameRatingDef(int gameId)
+        {
+            return _context.GameRatings.ToList();
         }
 
         [HttpGet("Review")]
@@ -35,6 +47,7 @@ namespace XboxAPI.Controllers
             return _context.GameReviews.Where(g => g.GameId == gameId).ToList();
         }
 
+        [HttpPut("Edit")]
         public Game EditGame(Game game)
         {
             var g = _context.Games.First(gm => gm.Id == game.Id);
@@ -60,6 +73,19 @@ namespace XboxAPI.Controllers
             _context.SaveChanges();
 
             return review;
+        }
+
+        private double GetGameAvgRating(Game game)
+        {
+            var gm = _context.Games.First(g => g.Id == game.Id);
+            if (gm == null)
+                return 0;
+
+            var reviews = _context.GameReviews.Where(g => g.GameId == game.Id).ToList();
+            if (!reviews.Any())
+                return 0;
+
+            return reviews.Average(avg => _context.GameRatings.First(r => r.Id == avg.GameRatingId).Rating);
         }
     }
 }

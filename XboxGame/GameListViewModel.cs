@@ -1,9 +1,11 @@
 ﻿using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using XboxGame.Interface;
 using XboxGame.Models;
 
@@ -31,5 +33,18 @@ namespace XboxGame
             target.Data = game;
             _eventAggregator.PublishOnUIThread(target);
         }
+
+        public void RateGame(Game game)
+        {
+            dynamic settings = new ExpandoObject();
+            settings.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            settings.ResizeMode = ResizeMode.NoResize;
+            settings.MinWidth = 450;
+            settings.Title = "My New Window";
+
+            IWindowManager manager = new WindowManager();
+            manager.ShowDialog(new RateGameViewModel(this._gameService, game), null, settings);
+        }
+
     }
 }

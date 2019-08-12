@@ -22,6 +22,7 @@ namespace XboxGame
         {
             this._gameService = gameService;
             this._eventAggregator = eventAggregator;
+            this.Game = game;
 
             this.GameReviews = this._gameService.GetGameReviews(game.Id);
         }
@@ -31,7 +32,12 @@ namespace XboxGame
             EventMessage target = new EventMessage();
             target.Text = "List";
             _eventAggregator.PublishOnUIThread(target);
+        }
 
+        public void UpdateDescription()
+        {
+            _gameService.EditGame(Game);
+            LoadGameList();
         }
     }
 }

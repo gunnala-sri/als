@@ -18,11 +18,20 @@
                 <GridView x:Name="grdTest">
                     <GridViewColumn Header="Game Title" DisplayMemberBinding="{Binding Title}"  Width="80" />
                     <GridViewColumn Header="Game Description" DisplayMemberBinding="{Binding Description}" Width="100" />
+                    <GridViewColumn Header="Average Rating" DisplayMemberBinding="{Binding AvgRating}" Width="100" />
                     <GridViewColumn>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Button Content="View Details"  Margin="5" VerticalAlignment="Center"
                                         cal:Message.Attach="[Event Click]=[Action LoadDetails($dataContext)]"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Rate This"  Margin="5" VerticalAlignment="Center"
+                                        cal:Message.Attach="[Event Click]=[Action RateGame($dataContext)]"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

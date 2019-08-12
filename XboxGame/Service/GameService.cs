@@ -27,5 +27,20 @@ namespace XboxGame.Service
         {
             return AsyncHelper.RunSync<List<GameReview>>(() => HTTPClientWrapper<List<GameReview>>.Get(xboxAPIUrl + @"game/Review?gameId=" + gameId));
         }
+
+        public void EditGame(Game game)
+        {
+            AsyncHelper.RunSync(() => HTTPClientWrapper<Game>.PutRequest(xboxAPIUrl + @"game/edit",game));
+        }
+
+        public List<GameRating> GetGameRatingDef()
+        {
+            return AsyncHelper.RunSync<List<GameRating>>(() => HTTPClientWrapper<List<GameRating>>.Get(xboxAPIUrl + "game/Rating"));
+        }
+
+        public void PostReview(GameReview review)
+        {
+            AsyncHelper.RunSync(() => HTTPClientWrapper<GameReview>.PostRequest(xboxAPIUrl + @"game/Review", review));
+        }
     }
 }

@@ -85,7 +85,12 @@
     <Compile Include="Interface\IGameService.cs" />
     <Compile Include="IShell.cs" />
     <Compile Include="Models\EventMessage.cs" />
+    <Compile Include="Models\GameRating.cs" />
     <Compile Include="Models\GameReview.cs" />
+    <Compile Include="RateGameView.xaml.cs">
+      <DependentUpon>RateGameView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RateGameViewModel.cs" />
     <Compile Include="Service\AsyncHelper.cs" />
     <Compile Include="Service\GameService.cs" />
     <Compile Include="Service\HTTPClientWrapper.cs" />
@@ -118,6 +123,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="RateGameView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ShellView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
