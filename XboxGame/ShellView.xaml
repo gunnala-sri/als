@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Grid Background="White">
-        <ContentControl x:Name="GameListVM"></ContentControl>
+        <ContentControl x:Name="ConentView"></ContentControl>
     </Grid>
 
 </Window>
