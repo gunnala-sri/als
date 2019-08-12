@@ -10,7 +10,7 @@ namespace SuperMarketRegisterTest
     public class TestReceipt
     {
         /// <summary>
-        /// Verifies reciept description
+        /// Verifies receipt description
         /// </summary>
         [Fact]
         public void ReceiptDescriptionTest()
