@@ -10,8 +10,11 @@
     <Grid Margin="0,0,0,20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <ListView Name="UserGrid" Grid.Row="1" Margin="40,100,40,100"  ItemsSource="{Binding Games}" Width="870"  >
+        <Button Grid.Row="1" Content="{Binding SortTypeConent}" Height="25" Width="250"  VerticalAlignment="Top" Margin="650,64,32,0"
+                cal:Message.Attach="[Event Click]=[Action SortByRecommendation()]"/>
+        <ListView Name="UserGrid" Grid.Row="2" Margin="40,100,40,100"  ItemsSource="{Binding Games}" Width="870"  >
             <ListView.View>
                 <GridView x:Name="grdTest">
                     <GridViewColumn Header="Game Title" DisplayMemberBinding="{Binding Title}"  Width="150" />

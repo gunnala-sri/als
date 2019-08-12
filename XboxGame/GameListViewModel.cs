@@ -18,12 +18,18 @@ namespace XboxGame
 
         public IList<Game> Games { get; set; }
 
+        public string SortTypeConent { get; set; }
+
+        private string SortType { get; set; }
+
         public GameListViewModel(IGameService gameService, IEventAggregator eventAggregator)
         {
             this._gameService = gameService;
             this._eventAggregator = eventAggregator;
 
-            Games = this._gameService.GetAllGames();
+            this.SortType = "ASC";
+            this.SortTypeConent = "Recommendation(high-low rating)";
+            Games = this._gameService.GetAllGames().OrderBy(g=> g.AvgRating).ToList();
         }
 
         public void LoadDetails(Game game)
@@ -39,11 +45,26 @@ namespace XboxGame
             dynamic settings = new ExpandoObject();
             settings.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             settings.ResizeMode = ResizeMode.NoResize;
-            settings.MinWidth = 450;
-            settings.Title = "My New Window";
+            settings.Title = "Rate This Game";
 
             IWindowManager manager = new WindowManager();
             manager.ShowDialog(new RateGameViewModel(this._gameService,this._eventAggregator, game), null, settings);
+        }
+
+         public void SortByRecommendation()
+        {
+            if(this.SortType == "ASC")
+            {
+                this.SortTypeConent = "Recommendation(low-high rating)";
+                Games = this._gameService.GetAllGames().OrderByDescending(g => g.AvgRating).ToList();
+                this.SortType = "DESC";
+            }
+            else
+            {
+                this.SortTypeConent = "Recommendation(high-low rating)";
+                Games = this._gameService.GetAllGames().OrderBy(g => g.AvgRating).ToList();
+                this.SortType = "ASC";
+            }
         }
 
     }
