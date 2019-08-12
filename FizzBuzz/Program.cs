@@ -2,6 +2,9 @@
 
 namespace FizzBuzz
 {
+    /// <summary>
+    /// App Entry point class
+    /// </summary>
     class Program
     {
         static void Main(string[] args)
@@ -17,6 +20,11 @@ namespace FizzBuzz
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// Gets the printable format for given number
+        /// </summary>
+        /// <param name="num">integer</param>
+        /// <returns>string in pritable format</returns>
         private static string getPrintingNumber(int num)
         {
             if (MultipleOf3(num))
@@ -32,11 +40,21 @@ namespace FizzBuzz
             return num.ToString();
         }
 
+        /// <summary>
+        /// Returns true if multiples of 3, else false
+        /// </summary>
+        /// <param name="num">integer</param>
+        /// <returns>bool</returns>
         private static bool MultipleOf3(int num)
         {
             return (num % 3) == 0;
         }
 
+        /// <summary>
+        /// Returns true if multiples of 5, else false
+        /// </summary>
+        /// <param name="num">integer</param>
+        /// <returns>bool</returns>
         private static bool MultipleOf5(int num)
         {
             return (num % 5) == 0;

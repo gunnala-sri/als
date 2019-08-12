@@ -4,21 +4,39 @@ using System.Linq;
 
 namespace SuperMarketRegisterService
 {
+    /// <summary>
+    /// Represents the reciept of purchased items
+    /// </summary>
     public class Receipt
     {
-        private List<PurchaseItem> purchaseItems;
+        /// <summary>
+        /// List of purchased items
+        /// </summary>
+        private List<PurchaseItem> _purchaseItems;
 
-        private int taxPercentage;
+        /// <summary>
+        /// Tax percentage
+        /// </summary>
+        private int _taxPercentage;
 
+        /// <summary>
+        /// Instantiates the new object of type Receipt
+        /// </summary>
         public Receipt()
         {
-            purchaseItems = new List<PurchaseItem>();
-            taxPercentage = 10;
+            _purchaseItems = new List<PurchaseItem>();
+            _taxPercentage = 10;
         }
 
+        /// <summary>
+        /// Add purchase item
+        /// </summary>
+        /// <param name="quantity">Quanity of item</param>
+        /// <param name="name">name ofitem</param>
+        /// <param name="price">price of item</param>
         public void AddItem(int quantity, string name, double price)
         {
-            purchaseItems.Add(new PurchaseItem()
+            _purchaseItems.Add(new PurchaseItem()
             {
                 Quantity = quantity,
                 Name = name,
@@ -26,32 +44,44 @@ namespace SuperMarketRegisterService
             });
         }
 
+        /// <summary>
+        /// Provides detialed desecription of purchased items
+        /// </summary>
+        /// <returns>receipt description</returns>
         public override string ToString()
         {
             string receiptDescription = string.Empty;
-            purchaseItems.ForEach(p =>
+            _purchaseItems.ForEach(p =>
             {
                 receiptDescription = receiptDescription + p.Description + "\r\n";
             });
 
             receiptDescription = receiptDescription + "\tSubTotal = $" + string.Format("{0:N2}", getTotalPurchasePrice())  + "\r\n\t";
-            receiptDescription = receiptDescription + "Tax (" + taxPercentage + "%) = $" + string.Format("{0:N2}", getTax()) + "\r\n\t";
+            receiptDescription = receiptDescription + "Tax (" + _taxPercentage + "%) = $" + string.Format("{0:N2}", getTax()) + "\r\n\t";
             receiptDescription = receiptDescription + "Total = $" + string.Format("{0:N2}", (getTotalPurchasePrice() + getTax()));
 
             return receiptDescription;
         }
 
+        /// <summary>
+        /// Gets tax amount on total purchase
+        /// </summary>
+        /// <returns></returns>
         private double getTax()
         {
-            return Math.Round(((getTotalPurchasePrice() * taxPercentage) / 100), 2);
+            return Math.Round(((getTotalPurchasePrice() * _taxPercentage) / 100), 2);
         }
 
+        /// <summary>
+        /// Gets the total purchase
+        /// </summary>
+        /// <returns></returns>
         private double getTotalPurchasePrice()
         {
-            if (!purchaseItems.Any())
+            if (!_purchaseItems.Any())
                 return 0;
 
-            return purchaseItems.Sum(p => (p.Quantity * p.Price));
+            return _purchaseItems.Sum(p => (p.Quantity * p.Price));
         }
     }
 }

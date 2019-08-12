@@ -4,8 +4,14 @@ using Xunit;
 
 namespace SuperMarketRegisterTest
 {
+    /// <summary>
+    /// Test class to test business logic in Receipt
+    /// </summary>
     public class TestReceipt
     {
+        /// <summary>
+        /// Verifies reciept description
+        /// </summary>
         [Fact]
         public void ReceiptDescriptionTest()
         {
