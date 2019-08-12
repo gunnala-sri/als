@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace XboxAPI.DbModels
 {
     /// <summary>
-    /// Base model class to represent a database enitity
+    /// Base model class to represent a database entity
     /// </summary>
     public class BaseModel
     {

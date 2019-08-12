@@ -46,7 +46,7 @@ namespace XboxGame.Service
         /// <summary>
         /// Edits Game description
         /// </summary>
-        /// <param name="game">game with updated descirption</param>
+        /// <param name="game">game with updated description</param>
         public void EditGame(Game game)
         {
             AsyncHelper.RunSync(() => HTTPClientWrapper<Game>.PutRequest(this._xboxAPIUrl + @"game/edit",game));

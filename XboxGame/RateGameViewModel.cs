@@ -36,7 +36,7 @@ namespace XboxGame
         public GameRating SelectedGameRating { get; set; }
 
         /// <summary>
-        /// Gets or sets the value of revview comments
+        /// Gets or sets the value of review comments
         /// </summary>
         public string ReviewComments { get; set; }
 

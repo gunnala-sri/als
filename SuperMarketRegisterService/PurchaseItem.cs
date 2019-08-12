@@ -1,7 +1,7 @@
 ﻿namespace SuperMarketRegisterService
 {
     /// <summary>
-    /// A class repesent purchase item model
+    /// A class represent purchase item model
     /// </summary>
     public class PurchaseItem
     {

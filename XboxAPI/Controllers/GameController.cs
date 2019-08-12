@@ -43,7 +43,7 @@ namespace XboxAPI.Controllers
         }
 
         /// <summary>
-        /// Retireves game rating definitions
+        /// Retrieves game rating definitions
         /// </summary>
         /// <returns>List of game ratings</returns>
         [HttpGet("Rating")]
@@ -113,7 +113,7 @@ namespace XboxAPI.Controllers
         /// <returns>average rating</returns>
         private double GetGameAvgRating(Game game)
         {
-            // validte game object
+            // validate game object
             var gm = _context.Games.First(g => g.Id == game.Id);
             if (gm == null)
                 return 0;

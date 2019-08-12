@@ -33,12 +33,12 @@ namespace XboxGame
         /// <summary>
         /// Instantiates new object of GameDetailViewModel
         /// </summary>
-        /// <param name="gameService">Game Serviece object</param>
+        /// <param name="gameService">Game Service object</param>
         /// <param name="eventAggregator">Event Aggregator object</param>
         /// <param name="game">Game object</param>
         public GameDetailViewModel(IGameService gameService, IEventAggregator eventAggregator, Game game)
         {
-            // Initialzation
+            // Initialization
             this._gameService = gameService;
             this._eventAggregator = eventAggregator;
             this.Game = game;

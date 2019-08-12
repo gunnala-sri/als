@@ -30,7 +30,7 @@ namespace XboxGame.Interface
         /// <summary>
         /// Edits Game description
         /// </summary>
-        /// <param name="game">game with updated descirption</param>
+        /// <param name="game">game with updated description</param>
         void EditGame(Game game);
 
         /// <summary>

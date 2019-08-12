@@ -24,7 +24,7 @@ namespace FizzBuzz
         /// Gets the printable format for given number
         /// </summary>
         /// <param name="num">integer</param>
-        /// <returns>string in pritable format</returns>
+        /// <returns>string in printable format</returns>
         private static string getPrintingNumber(int num)
         {
             if (MultipleOf3(num))

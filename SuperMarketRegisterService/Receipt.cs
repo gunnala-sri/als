@@ -31,8 +31,8 @@ namespace SuperMarketRegisterService
         /// <summary>
         /// Add purchase item
         /// </summary>
-        /// <param name="quantity">Quanity of item</param>
-        /// <param name="name">name ofitem</param>
+        /// <param name="quantity">Quantity of item</param>
+        /// <param name="name">name of item</param>
         /// <param name="price">price of item</param>
         public void AddItem(int quantity, string name, double price)
         {
@@ -45,7 +45,7 @@ namespace SuperMarketRegisterService
         }
 
         /// <summary>
-        /// Provides detialed desecription of purchased items
+        /// Provides detailed description of purchased items
         /// </summary>
         /// <returns>receipt description</returns>
         public override string ToString()

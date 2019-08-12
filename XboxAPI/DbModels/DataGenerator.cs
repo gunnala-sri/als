@@ -6,7 +6,7 @@ using System.Linq;
 namespace XboxAPI.DbModels
 {
     /// <summary>
-    /// Generates the inital seed data for application to run
+    /// Generates the initial seed data for application to run
     /// </summary>
     public class DataGenerator
     {

@@ -9,7 +9,7 @@ namespace XboxGame.Models
     public class Game : INotifyPropertyChanged
     {
         /// <summary>
-        /// Event to handle propery change
+        /// Event to handle property change
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
