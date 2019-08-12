@@ -35,7 +35,7 @@ namespace XboxGame
         public void LoadDetails(Game game)
         {
             EventMessage target = new EventMessage();
-            target.Text = "Details";
+            target.Message = "Details";
             target.Data = game;
             _eventAggregator.PublishOnUIThread(target);
         }

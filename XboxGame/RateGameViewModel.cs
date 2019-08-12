@@ -51,7 +51,7 @@ namespace XboxGame
         public void LoadGameList()
         {
             EventMessage target = new EventMessage();
-            target.Text = "List";
+            target.Message = "List";
             _eventAggregator.PublishOnUIThread(target);
         }
     }

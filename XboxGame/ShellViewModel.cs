@@ -19,7 +19,7 @@ namespace XboxGame {
 
         public void Handle(EventMessage message)
         {
-            if (message.Text == "Details")
+            if (message.Message == "Details")
             {
                 GameListVM = new GameDetailViewModel(IoC.Get<IGameService>(), _eventAggregator, message.Data as Game );
             }
