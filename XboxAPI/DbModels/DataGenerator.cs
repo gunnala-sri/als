@@ -1,14 +1,19 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace XboxAPI.DbModels
 {
+    /// <summary>
+    /// Generates the inital seed data for application to run
+    /// </summary>
     public class DataGenerator
     {
+        /// <summary>
+        /// Seeds the data
+        /// </summary>
+        /// <param name="serviceProvider">Service provided object</param>
         public static void Initialize(IServiceProvider serviceProvider)
         {
             using (var context = new XboxDbContext(
@@ -20,14 +25,20 @@ namespace XboxAPI.DbModels
                     return;   // Data was already seeded
                 }
 
+                // Seed the data
                 Seed_GameRating(context);
                 Seed_Game(context);
                 Seed_GameReview(context);
 
+                // Save changes
                 context.SaveChanges();
             }
         }
 
+        /// <summary>
+        /// Seed game rating model
+        /// </summary>
+        /// <param name="context">database context</param>
         private static void Seed_GameRating(XboxDbContext context)
         {
             context.GameRatings.AddRange(
@@ -73,6 +84,10 @@ namespace XboxAPI.DbModels
                });
         }
 
+        /// <summary>
+        /// Seed game model
+        /// </summary>
+        /// <param name="context">database context</param>
         private static void Seed_Game(XboxDbContext context)
         {
 
@@ -93,6 +108,10 @@ namespace XboxAPI.DbModels
                    });
         }
 
+        /// <summary>
+        /// Seed game review model
+        /// </summary>
+        /// <param name="context">database context</param>
         private static void Seed_GameReview(XboxDbContext context)
         {
 
