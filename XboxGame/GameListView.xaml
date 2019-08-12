@@ -10,16 +10,14 @@
     <Grid Margin="0,0,0,20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <ListView Name="UserGrid" Grid.Row="1" Margin="4,178,12,13"  ItemsSource="{Binding Games}"  >
+        <ListView Name="UserGrid" Grid.Row="1" Margin="40,100,40,100"  ItemsSource="{Binding Games}" Width="870"  >
             <ListView.View>
                 <GridView x:Name="grdTest">
-                    <GridViewColumn Header="Game Title" DisplayMemberBinding="{Binding Title}"  Width="80" />
-                    <GridViewColumn Header="Game Description" DisplayMemberBinding="{Binding Description}" Width="100" />
-                    <GridViewColumn Header="Average Rating" DisplayMemberBinding="{Binding AvgRating}" Width="100" />
-                    <GridViewColumn>
+                    <GridViewColumn Header="Game Title" DisplayMemberBinding="{Binding Title}"  Width="150" />
+                    <GridViewColumn Header="Game Description" DisplayMemberBinding="{Binding Description}" Width="300" />
+                    <GridViewColumn Header="Average Rating" DisplayMemberBinding="{Binding AvgRating, StringFormat=N2}" Width="100" />
+                    <GridViewColumn Width="150">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Button Content="View Details"  Margin="5" VerticalAlignment="Center"
@@ -27,7 +25,7 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn>
+                    <GridViewColumn Width="150">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Button Content="Rate This"  Margin="5" VerticalAlignment="Center"

@@ -43,7 +43,7 @@ namespace XboxGame
             settings.Title = "My New Window";
 
             IWindowManager manager = new WindowManager();
-            manager.ShowDialog(new RateGameViewModel(this._gameService, game), null, settings);
+            manager.ShowDialog(new RateGameViewModel(this._gameService,this._eventAggregator, game), null, settings);
         }
 
     }

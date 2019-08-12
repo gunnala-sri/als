@@ -7,8 +7,8 @@
              xmlns:local="clr-namespace:XboxGame"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Label Content="{Binding Game.Title}" HorizontalAlignment="Left" Margin="334,32,0,0" VerticalAlignment="Top"/>
+    <Grid Height="300" Width="800">
+        <Label Content="{Binding Game.Title}" HorizontalAlignment="Left" Margin="334,32,0,0" FontWeight="Bold" VerticalAlignment="Top"/>
         <Button Content="Add Review" HorizontalAlignment="Left" Margin="582,216,0,0" VerticalAlignment="Top" Width="75"
                 cal:Message.Attach="[Event Click]=[Action RateGame()]"/>
         <TextBox HorizontalAlignment="Left" Height="64" Margin="80,115,0,0" TextWrapping="Wrap" Text="{Binding ReviewComments}" VerticalAlignment="Top" Width="577"/>

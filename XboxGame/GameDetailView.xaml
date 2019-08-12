@@ -8,25 +8,26 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Button Content="View Details"  Margin="449,401,201,29" VerticalAlignment="Center" Width="150"
-                                        cal:Message.Attach="[Event Click]=[Action LoadGameList()]" RenderTransformOrigin="0.5,0.5">
-        </Button>
+
         <Label Content="{Binding Game.Title}" HorizontalAlignment="Left" Margin="42,16,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="79" Margin="44,57,0,0" TextWrapping="Wrap" Text="{Binding Game.Description}" VerticalAlignment="Top" Width="416"/>
+        <TextBox HorizontalAlignment="Left" Height="79" Margin="44,57,0,0" TextWrapping="Wrap" Text="{Binding Game.Description}" VerticalAlignment="Top" Width="489"/>
+        <Button Content="Update Description" HorizontalAlignment="Left" Margin="383,149,0,0" VerticalAlignment="Top" Width="150"
+                cal:Message.Attach="[Event Click]=[Action UpdateDescription()]"/>
         <Grid Margin="0,0,0,20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <ListView Name="UserGrid" Grid.Row="1" Margin="4,182,12,60"  ItemsSource="{Binding GameReviews}"  >
+            <ListView Name="UserGrid" Margin="46,197,266,45"  ItemsSource="{Binding GameReviews}"  >
                 <ListView.View>
                     <GridView x:Name="grdTest">
-                        <GridViewColumn Header="Review Comments" DisplayMemberBinding="{Binding ReviewComments}"  Width="80" />
+                        <GridViewColumn Header="Review Comments" DisplayMemberBinding="{Binding ReviewComments}"  Width="370" />
                         <GridViewColumn Header="Rating" DisplayMemberBinding="{Binding GameRatingId}" Width="100" />
                     </GridView>
                 </ListView.View>
             </ListView>
         </Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="383,147,0,0" VerticalAlignment="Top" Width="75"
-                cal:Message.Attach="[Event Click]=[Action UpdateDescription()]"/>
+        <Button Content="Back to List"  Margin="622,-220,28,417" VerticalAlignment="Center" Width="150"
+                                        cal:Message.Attach="[Event Click]=[Action LoadGameList()]" RenderTransformOrigin="0.5,0.5">
+        </Button>
     </Grid>
 </UserControl>

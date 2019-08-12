@@ -12,6 +12,8 @@ namespace XboxGame
 {
     public class RateGameViewModel : Screen 
     {
+        private readonly IEventAggregator _eventAggregator;
+
         private IGameService _gameService;
         public Game Game { get; set; }
 
@@ -21,8 +23,9 @@ namespace XboxGame
 
         public string ReviewComments { get; set; }
 
-        public RateGameViewModel(IGameService gameService, Game game)
+        public RateGameViewModel(IGameService gameService, IEventAggregator eventAggregator, Game game)
         {
+            this._eventAggregator = eventAggregator;
             this._gameService = gameService;
             this.Game = game;
 
@@ -40,7 +43,16 @@ namespace XboxGame
             };
 
             this._gameService.PostReview(review);
+
             TryClose();
+            LoadGameList();
+        }
+
+        public void LoadGameList()
+        {
+            EventMessage target = new EventMessage();
+            target.Text = "List";
+            _eventAggregator.PublishOnUIThread(target);
         }
     }
 }
