@@ -7,10 +7,10 @@
              xmlns:local="clr-namespace:XboxGame"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Margin="0,0,0,20">
+    <Grid Margin="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Button Grid.Row="1" Content="{Binding SortTypeConent}" Height="25" Width="250"  VerticalAlignment="Top" Margin="650,64,32,0"
                 cal:Message.Attach="[Event Click]=[Action SortByRecommendation()]"/>
@@ -18,7 +18,13 @@
             <ListView.View>
                 <GridView x:Name="grdTest">
                     <GridViewColumn Header="Game Title" DisplayMemberBinding="{Binding Title}"  Width="150" />
-                    <GridViewColumn Header="Game Description" DisplayMemberBinding="{Binding Description}" Width="300" />
+                    <GridViewColumn Header="Game Description" Width="300">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock TextWrapping="Wrap" Text="{Binding Description}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                     <GridViewColumn Header="Average Rating" DisplayMemberBinding="{Binding AvgRating, StringFormat=N2}" Width="100" />
                     <GridViewColumn Width="150">
                         <GridViewColumn.CellTemplate>

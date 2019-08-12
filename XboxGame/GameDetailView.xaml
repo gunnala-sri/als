@@ -15,12 +15,18 @@
                 cal:Message.Attach="[Event Click]=[Action UpdateDescription()]"/>
         <Grid Margin="0,0,0,20">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <ListView Name="UserGrid" Margin="46,197,266,45"  ItemsSource="{Binding GameReviews}"  >
                 <ListView.View>
                     <GridView x:Name="grdTest">
-                        <GridViewColumn Header="Review Comments" DisplayMemberBinding="{Binding ReviewComments}"  Width="370" />
+                        <GridViewColumn Header="Review Comments" Width="370">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock TextWrapping="Wrap" Text="{Binding ReviewComments}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
                         <GridViewColumn Header="Rating" DisplayMemberBinding="{Binding GameRatingId}" Width="100" />
                     </GridView>
                 </ListView.View>

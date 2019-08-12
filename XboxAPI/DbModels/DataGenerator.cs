@@ -105,6 +105,27 @@ namespace XboxAPI.DbModels
                        Description = "Figh the Badies",
                        CreatedBy = "Fuelo",
                        CreatedDate = DateTime.Now
+                   },
+                   new Game
+                   {
+                       Title = "The Mario world",
+                       Description = "The next generation of Mario",
+                       CreatedBy = "Mario",
+                       CreatedDate = DateTime.Now
+                   },
+                   new Game
+                   {
+                       Title = "The Contra",
+                       Description = "Figh Everything",
+                       CreatedBy = "Palo",
+                       CreatedDate = DateTime.Now
+                   },
+                   new Game
+                   {
+                       Title = "The Size of the Earth",
+                       Description = "Never ending planet",
+                       CreatedBy = "martio",
+                       CreatedDate = DateTime.Now
                    });
         }
 
@@ -129,6 +150,38 @@ namespace XboxAPI.DbModels
                     GameId = 1,
                     GameRatingId = 5,
                     ReviewComments = "Excellent",
+                    CreatedBy = "Romeo",
+                    CreatedDate = DateTime.Now
+                },
+                new GameReview
+                {
+                    GameId = 2,
+                    GameRatingId = 5,
+                    ReviewComments = "Excellent",
+                    CreatedBy = "Romeo",
+                    CreatedDate = DateTime.Now
+                },
+                new GameReview
+                {
+                    GameId = 3,
+                    GameRatingId = 2,
+                    ReviewComments = "No clue what is going on here",
+                    CreatedBy = "Romeo",
+                    CreatedDate = DateTime.Now
+                },
+                new GameReview
+                {
+                    GameId = 4,
+                    GameRatingId = 4,
+                    ReviewComments = "Graphics doesn't match to current trend",
+                    CreatedBy = "Romeo",
+                    CreatedDate = DateTime.Now
+                },
+                new GameReview
+                {
+                    GameId = 5,
+                    GameRatingId = 1,
+                    ReviewComments = "This is &*^%",
                     CreatedBy = "Romeo",
                     CreatedDate = DateTime.Now
                 });
